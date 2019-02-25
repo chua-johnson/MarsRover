@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("DisplayImage","Home",FormMethod.Post))
+{
+    <input type="text" name="txtDate" id="txtDate"/>
+    <input type="submit" value="Load NASA Photo"/>
+}
