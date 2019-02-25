@@ -29,10 +29,19 @@ namespace MarsRoverService.Controllers
         //}
 
         [HttpGet("{date}")]
-        public NasaInfo Get(string date)
+        public ActionResult<NasaInfo> Get(string date)
         {
+            if(!string.IsNullOrWhiteSpace(date))
+            {
+                bool isValidDate = _service.IsValidDate(date);
+
+                if(!isValidDate)
+                {
+                    return BadRequest("Invalid Date");
+                }
+            }
             NasaInfo nasaInfo = _service.GetNASAInfo(date);
-            return nasaInfo;
+            return Ok(nasaInfo);
         }
     }
 }

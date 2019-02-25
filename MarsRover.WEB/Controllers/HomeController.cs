@@ -43,7 +43,7 @@ namespace MarsRover.WEB.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Server error try after some time.");
+                    ModelState.AddModelError("NasaError", "Something went wrong..unable to process your request");
                 }
             }
             return View(nasaInfo);
